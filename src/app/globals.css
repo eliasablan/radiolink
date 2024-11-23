@@ -77,3 +77,60 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+*::-webkit-scrollbar-track {
+  background-color: hsl(var(--primary));
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--primary-foreground));
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-corner {
+  background: hsl(var(--primary));
+}
+
+/* Adjust scrollbar width for smaller screens */
+@media screen and (max-width: 768px) {
+  *::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+}
+
+/* Adjust scrollbar width for medium screens */
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  *::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+}
+
+/* Adjust scrollbar width for large screens */
+@media screen and (min-width: 1280px) {
+  *::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+}
+
+.scroll-tight::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+.scroll-inbox::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+.scroll-inbox::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background-color: hsl(var(--primary-foreground));
+  border-left: 1px solid hsl(var(--border));
+}
+
+.scroll-inbox::-webkit-scrollbar-track {
+  background-color: hsl(var(--border));
+}
