@@ -1,5 +1,6 @@
-import type { Config } from 'tailwindcss'
-import TailwindAnimations from 'tailwindcss-animate'
+import type { Config } from 'tailwindcss';
+import TailwindAnimations from 'tailwindcss-animate';
+import containerQueries from '@tailwindcss/container-queries';
 
 const config: Config = {
   darkMode: ['class'],
@@ -11,6 +12,7 @@ const config: Config = {
   theme: {
     container: {
       center: true,
+      padding: '1rem',
     },
     extend: {
       colors: {
@@ -62,6 +64,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [TailwindAnimations],
-}
-export default config
+  plugins: [TailwindAnimations, containerQueries],
+};
+export default config;

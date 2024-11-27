@@ -84,11 +84,10 @@ body {
 
 *::-webkit-scrollbar-thumb {
   background-color: hsl(var(--primary-foreground));
-  border-radius: 10px;
 }
 
 *::-webkit-scrollbar-corner {
-  background: hsl(var(--primary));
+  background: hsl(var(--primary-foreground));
 }
 
 /* Adjust scrollbar width for smaller screens */
