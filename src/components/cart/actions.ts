@@ -11,7 +11,10 @@ import {
 import { revalidateTag } from 'next/cache';
 import { cookies } from 'next/headers';
 
-export async function addItem(selectedVariantId: string | undefined) {
+export async function addItem(
+  prevState: any,
+  selectedVariantId: string | undefined
+) {
   let cartId = cookies().get('cartId')?.value;
   let cart;
 
