@@ -12,6 +12,7 @@ import { revalidateTag } from 'next/cache';
 import { cookies } from 'next/headers';
 
 export async function addItem(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prevState: any,
   selectedVariantId: string | undefined
 ) {
