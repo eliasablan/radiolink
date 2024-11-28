@@ -12,6 +12,7 @@ import { revalidateTag } from 'next/cache';
 import { cookies } from 'next/headers';
 
 export async function addItem(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   prevState: any,
   selectedVariantId: string | undefined
 ) {
@@ -43,7 +44,8 @@ export async function addItem(
   }
 }
 
-export async function removeItem(lineId: string) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function removeItem(prevState: any, lineId: string) {
   const cartId = cookies().get('cartId')?.value;
 
   if (!cartId) {
@@ -59,11 +61,15 @@ export async function removeItem(lineId: string) {
   }
 }
 
-export async function updateItemQuantity(payload: {
-  lineId: string;
-  variantId: string;
-  quantity: number;
-}) {
+export async function updateItemQuantity(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  prevState: any,
+  payload: {
+    lineId: string;
+    variantId: string;
+    quantity: number;
+  }
+) {
   const cartId = cookies().get('cartId')?.value;
 
   if (!cartId) {
