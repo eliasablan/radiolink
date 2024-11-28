@@ -98,11 +98,11 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <footer className="bg-primary py-4 text-primary-foreground">
+      <footer className="bg-primary py-3 text-primary-foreground">
         <div className="container mx-auto flex flex-col items-center justify-between md:flex-row">
           {/* Derechos de autor */}
-          <div className="mb-4 text-center md:mb-0 md:text-left">
-            <p className="text-sm">
+          <div className="text-center md:mb-0 md:text-left">
+            <p className="text-xs">
               &copy; {new Date().getFullYear()} Radiolink - Servicios
               Integrados de Telecomunicaciones. Repetición y ampliación de
               Coberturas para radios y celulares.
@@ -122,7 +122,7 @@ export default function Footer() {
                 height="24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="1"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 className="lucide lucide-facebook"
@@ -141,7 +141,7 @@ export default function Footer() {
                 height="24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
+                strokeWidth="1"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 className="lucide lucide-twitter"

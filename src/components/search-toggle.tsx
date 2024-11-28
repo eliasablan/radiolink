@@ -24,11 +24,17 @@ export default function SearchToggle({
             placeholder="Buscar..."
             className="placeholder:text-primary-foreground"
           />
-
-          <X onClick={() => toggleSearch(false)} className="size-4" />
+          <X
+            onClick={() => toggleSearch(false)}
+            className="size-5 cursor-pointer"
+          />
         </div>
       ) : (
-        <Search onClick={() => toggleSearch(true)} className="size-4" />
+        <Search
+          strokeWidth={2}
+          onClick={() => toggleSearch(true)}
+          className="size-5 cursor-pointer"
+        />
       )}
     </div>
   );
