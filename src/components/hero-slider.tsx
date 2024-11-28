@@ -1,69 +1,88 @@
 'use client';
 
-import * as React from 'react';
-import Autoplay from 'embla-carousel-autoplay';
-
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay } from 'swiper/modules';
 import Image from 'next/image';
 
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+
+import { useMediaQuery } from '@/hooks/use-media-query';
+
 const sliderCards = [
-  {
-    title: 'Soluciones Energéticas',
-    description: 'Bienvenido a nuestra empresa.',
-    src: '/slider1.png',
-    alt: 'Slider 1',
-  },
-  {
-    title: 'Innovadoras para todos',
-    description: 'Optimiza el manejo de energía en tu hogar o negocio.',
-    src: '/slider2.png',
-    alt: 'Slider 2',
-  },
+  { src: '/carousel/engineering.jpg', alt: 'Slider 1' },
+  { src: '/carousel/expansion.jpg', alt: 'Slider 2' },
+  { src: '/carousel/integradores.jpg', alt: 'Slider 3' },
+  { src: '/carousel/representatives.jpg', alt: 'Slider 4' },
+  { src: '/carousel/servicio.jpg', alt: 'Slider 5' },
+];
+
+const mobileSliderCards = [
+  { src: '/carousel/mobile/engineering.jpg', alt: 'Slider 1' },
+  { src: '/carousel/mobile/expansion.jpg', alt: 'Slider 2' },
+  { src: '/carousel/mobile/integradores.jpg', alt: 'Slider 3' },
+  { src: '/carousel/mobile/representatives.jpg', alt: 'Slider 4' },
+  { src: '/carousel/mobile/servicio.jpg', alt: 'Slider 5' },
 ];
 
 export function HeroSlider() {
-  const plugin = React.useRef(
-    Autoplay({ delay: 4000, stopOnFocusIn: true })
-  );
+  const isMobile = useMediaQuery('(max-width: 768px)');
 
-  return (
-    <Carousel
-      opts={{
-        loop: true,
-      }}
-      plugins={[plugin.current]}
-      className="container w-full"
-      onMouseEnter={plugin.current.stop}
-      onMouseLeave={plugin.current.reset}
-    >
-      <CarouselContent>
-        {sliderCards.map((sliderImage, index) => (
-          <CarouselItem key={index}>
-            <div className="flex flex-col items-center justify-center p-6 md:flex-row">
-              <div className="mx-4 flex flex-col justify-center gap-6 md:w-1/2">
-                <h2 className="text-pretty text-5xl font-semibold">
-                  {sliderImage.title}
-                </h2>
-                <p className="text-balance">{sliderImage.description}</p>
-              </div>
+  if (isMobile) {
+    return (
+      <Swiper
+        navigation={true}
+        loop={true}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: true,
+        }}
+        modules={[Navigation, Autoplay]}
+        className="container"
+      >
+        {mobileSliderCards.map((sliderImage, index) => (
+          <SwiperSlide key={index}>
+            <div className="relative">
               <Image
                 src={sliderImage.src}
                 alt={sliderImage.alt}
-                width={400}
-                height={300}
+                width={300}
+                height={200}
+                layout="responsive"
               />
             </div>
-          </CarouselItem>
+          </SwiperSlide>
         ))}
-      </CarouselContent>
-      <CarouselPrevious className="absolute left-10" />
-      <CarouselNext className="absolute right-10" />
-    </Carousel>
+      </Swiper>
+    );
+  }
+
+  return (
+    <Swiper
+      navigation={true}
+      loop={true}
+      autoplay={{
+        delay: 3000,
+        disableOnInteraction: true,
+      }}
+      modules={[Navigation, Autoplay]}
+      className="container"
+    >
+      {sliderCards.map((sliderImage, index) => (
+        <SwiperSlide key={index}>
+          <div className="relative">
+            <Image
+              src={sliderImage.src}
+              alt={sliderImage.alt}
+              width={300}
+              height={200}
+              layout="responsive"
+            />
+          </div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 }

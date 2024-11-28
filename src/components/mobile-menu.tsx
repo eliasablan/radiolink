@@ -37,10 +37,7 @@ export default function MobileMenu({
             </li>
             {menu?.length &&
               menu.map((item) => (
-                <li
-                  className="text-destructive hover:text-primary"
-                  key={item.title}
-                >
+                <li className="hover:text-primary" key={item.title}>
                   <SheetClose asChild>
                     <Link href={item.path}>{item.title}</Link>
                   </SheetClose>

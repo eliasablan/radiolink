@@ -1,34 +1,15 @@
 import { HeroSlider } from '@/components/hero-slider';
-import { HistoryBanner } from '@/components/history-banner';
-import { Services } from '@/components/services';
-import { Testimonials } from '@/components/testimonials';
-import ProductCard from '@/components/product-card';
+import { ProductTypes } from '@/components/products/product-types';
+import { CategoriesGrid } from '@/components/product-categories/categories-grid';
+import { ClientsSection } from '@/components/clients/clients-section';
 
-import { getCollectionProducts } from '@/lib/shopify';
-
-export default async function Home() {
-  const featuredItemsProducts = await getCollectionProducts({
-    collection: 'hidden-homepage-featured-items',
-  });
-
+export default function Home() {
   return (
-    <>
+    <main>
       <HeroSlider />
-      <HistoryBanner />
-      <div className="container grid gap-8 py-16 md:grid-cols-3">
-        {featuredItemsProducts.map((product) => (
-          <ProductCard
-            key={product.id}
-            loading="lazy"
-            product={product}
-            src={product.featuredImage?.url}
-            alt={product.title}
-            sizes="(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
-          />
-        ))}
-      </div>
-      <Services />
-      <Testimonials />
-    </>
+      <ProductTypes />
+      <CategoriesGrid />
+      <ClientsSection />
+    </main>
   );
 }
