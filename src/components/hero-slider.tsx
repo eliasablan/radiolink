@@ -33,28 +33,38 @@ export function HeroSlider() {
   const slides = isMobile ? mobileSliderCards : sliderCards;
 
   return (
-    <Swiper
-      navigation={true}
-      loop={true}
-      autoplay={{
-        delay: 3000,
-        disableOnInteraction: true,
-      }}
-      modules={[Navigation, Autoplay]}
-      className="container"
-    >
-      {slides.map((sliderImage, index) => (
-        <SwiperSlide key={index}>
-          <div className="relative">
-            <Image
-              src={sliderImage.src}
-              alt={sliderImage.alt}
-              width={1920}
-              height={1080}
-            />
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div className="container relative mx-auto w-full overflow-hidden">
+      <Swiper
+        navigation={true}
+        loop={true}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        modules={[Navigation, Autoplay]}
+        className="w-full"
+        style={{
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          ['--swiper-navigation-size' as any]: '25px',
+        }}
+      >
+        {slides.map((sliderImage, index) => (
+          <SwiperSlide
+            key={index}
+            className="flex w-full items-center justify-center"
+          >
+            <div className="relative h-[400px] w-full sm:h-[500px] lg:h-[600px]">
+              <Image
+                src={sliderImage.src}
+                alt={sliderImage.alt}
+                layout="fill"
+                sizes="(max-width: 768px) 100vw, 1200px"
+                style={{ objectFit: 'contain' }} // Aseguramos que la imagen se muestre completa
+              />
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 }

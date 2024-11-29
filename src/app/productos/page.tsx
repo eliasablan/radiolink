@@ -33,7 +33,7 @@ export default async function page() {
           </h3>
         </div>
       </div>
-      <div className="container grid gap-4 py-12 md:grid-cols-5">
+      <div className="container grid gap-4 py-12 md:grid-cols-3 lg:grid-cols-5">
         {portatiles.map((product) => (
           <ProductCard
             key={product.id}
@@ -57,7 +57,7 @@ export default async function page() {
           </h3>
         </div>
       </div>
-      <div className="container grid gap-4 py-12 md:grid-cols-5">
+      <div className="container grid gap-4 py-12 md:grid-cols-3 lg:grid-cols-5">
         {moviles.map((product) => (
           <ProductCard
             key={product.id}
@@ -81,7 +81,7 @@ export default async function page() {
           </h3>
         </div>
       </div>
-      <div className="container grid gap-4 py-12 md:grid-cols-5">
+      <div className="container grid gap-4 py-12 md:grid-cols-3 lg:grid-cols-5">
         {repetidores.map((product) => (
           <ProductCard
             key={product.id}
