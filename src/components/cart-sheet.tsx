@@ -5,11 +5,12 @@ import Link from 'next/link';
 import { ShoppingCartIcon } from 'lucide-react';
 import type { Cart } from '@/lib/shopify/types';
 import { DEFAULT_OPTION } from '@/lib/constants';
-import { createUrl } from '@/lib/utils';
+import { cn, createUrl } from '@/lib/utils';
 
 import Price from './price';
 import { DeleteItemButton } from './cart/delete-item-button';
 import { EditItemQuantityButton } from './cart/edit-item-quantity-button';
+import { buttonVariants } from './ui/button';
 
 type MerchandiseSearchParams = {
   [key: string]: string;
@@ -141,12 +142,16 @@ export default function CartSheet({ cart }: { cart: Cart | undefined }) {
               />
             </div>
           </div>
-          <a
+          <Link
+            className={cn(
+              buttonVariants({
+                variant: 'outline',
+              })
+            )}
             href={cart.checkoutUrl}
-            className="block w-full rounded-full p-3 text-center text-sm font-medium transition-all duration-300 ease-out hover:opacity-70"
           >
             Proceed to Checkout
-          </a>
+          </Link>
         </div>
       )}
     </div>

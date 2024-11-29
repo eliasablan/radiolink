@@ -30,34 +30,7 @@ const mobileSliderCards = [
 export function HeroSlider() {
   const isMobile = useMediaQuery('(max-width: 768px)');
 
-  if (isMobile) {
-    return (
-      <Swiper
-        navigation={true}
-        loop={true}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: true,
-        }}
-        modules={[Navigation, Autoplay]}
-        className="container"
-      >
-        {mobileSliderCards.map((sliderImage, index) => (
-          <SwiperSlide key={index}>
-            <div className="relative">
-              <Image
-                src={sliderImage.src}
-                alt={sliderImage.alt}
-                width={300}
-                height={200}
-                layout="responsive"
-              />
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    );
-  }
+  const slides = isMobile ? mobileSliderCards : sliderCards;
 
   return (
     <Swiper
@@ -70,15 +43,14 @@ export function HeroSlider() {
       modules={[Navigation, Autoplay]}
       className="container"
     >
-      {sliderCards.map((sliderImage, index) => (
+      {slides.map((sliderImage, index) => (
         <SwiperSlide key={index}>
           <div className="relative">
             <Image
               src={sliderImage.src}
               alt={sliderImage.alt}
-              width={300}
-              height={200}
-              layout="responsive"
+              width={1920}
+              height={1080}
             />
           </div>
         </SwiperSlide>

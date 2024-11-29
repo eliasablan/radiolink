@@ -23,8 +23,8 @@ export default function ProductCard({
 } & React.ComponentProps<typeof Image>) {
   return (
     <Link
-      href={`/product/${product.handle}`}
-      className={cn('@container group relative h-auto w-full', className)}
+      href={`/productos/${product.handle}`}
+      className={cn('group relative h-auto w-full @container', className)}
     >
       <Card className="flex aspect-auto h-full flex-col justify-between">
         <CardContent className="flex h-full items-center justify-center p-4">

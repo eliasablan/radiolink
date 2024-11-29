@@ -1,5 +1,5 @@
 import React from 'react';
-import { getCollectionProducts, getProducts } from '@/lib/shopify';
+import { getCollectionProducts } from '@/lib/shopify';
 import ProductCard from '@/components/product-card';
 import Image from 'next/image';
 import {
@@ -10,7 +10,6 @@ import {
 } from '@/components/ui/table';
 
 export default async function page() {
-  const allProducts = await getProducts({});
   const portatiles = await getCollectionProducts({
     collection: 'radios-portatiles-motorola',
   });
@@ -20,12 +19,7 @@ export default async function page() {
   const repetidores = await getCollectionProducts({
     collection: 'repetidores-motorola',
   });
-  console.log({
-    portatiles: portatiles.length,
-    moviles: moviles.length,
-    repetidores: repetidores.length,
-    allProducts: allProducts.length,
-  });
+
   return (
     <>
       {/* Radios Portátiles Motorola */}
