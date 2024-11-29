@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export default function page() {
   return (
-    <div>
+    <>
       {/* Cabecera */}
       <div className="relative min-h-96 w-full">
         <Image
@@ -146,6 +146,6 @@ export default function page() {
           </Button>
         </div>
       </div>
-    </div>
+    </>
   );
 }
