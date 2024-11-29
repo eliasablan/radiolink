@@ -29,7 +29,7 @@ export default async function Header() {
     <SearchProvider>
       <div className="w-full bg-foreground text-background">
         <p className="flex flex-wrap items-center justify-center gap-2 text-pretty px-2 py-1 text-center text-xs font-semibold">
-          <a href="tel:+18475555555" className="flex items-center gap-2">
+          <a href="tel:584242728990" className="flex items-center gap-2">
             <Phone size={12} strokeWidth={2} />
             Teléfono: +58 (424) 2188996
           </a>
